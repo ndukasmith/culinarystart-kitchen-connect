@@ -2,9 +2,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Search, MapPin, Users, Clock, Star, Calendar, ChefHat, Utensils } from "lucide-react";
+import { Search, MapPin, Users, Clock, Star, Calendar, ChefHat, Utensils, TrendingUp } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import KitchenCard from "@/components/KitchenCard";
 import Hero from "@/components/Hero";
@@ -52,6 +51,42 @@ const Index = () => {
       equipment: ["Full Equipment Set", "Recording Setup", "Tasting Area"],
       capacity: 6,
       available: false
+    },
+    {
+      id: 4,
+      name: "Professional Catering Kitchen",
+      location: "The Hague",
+      price: 55,
+      rating: 4.6,
+      reviews: 98,
+      image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop",
+      equipment: ["Large Prep Area", "Industrial Equipment", "Cold Storage"],
+      capacity: 10,
+      available: true
+    },
+    {
+      id: 5,
+      name: "Cozy Community Kitchen",
+      location: "Eindhoven",
+      price: 32,
+      rating: 4.5,
+      reviews: 67,
+      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+      equipment: ["Basic Equipment", "Shared Storage", "Dining Area"],
+      capacity: 6,
+      available: true
+    },
+    {
+      id: 6,
+      name: "High-End Culinary Lab",
+      location: "Amsterdam South",
+      price: 75,
+      rating: 4.9,
+      reviews: 142,
+      image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=400&h=300&fit=crop",
+      equipment: ["Sous Vide Station", "Molecular Equipment", "Premium Tools"],
+      capacity: 4,
+      available: true
     }
   ];
 
@@ -59,11 +94,10 @@ const Index = () => {
     { icon: ChefHat, label: "Kitchens Available", value: "500+" },
     { icon: Users, label: "Active Users", value: "2,500+" },
     { icon: Calendar, label: "Bookings This Month", value: "1,200+" },
-    { icon: Star, label: "Average Rating", value: "4.8" }
+    { icon: TrendingUp, label: "Success Rate", value: "98%" }
   ];
 
   useEffect(() => {
-    // Check if user has selected a type before
     const savedUserType = localStorage.getItem('culinarystart_user_type');
     if (savedUserType) {
       setUserType(savedUserType);
@@ -82,22 +116,22 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Navigation userType={userType} onSelectUserType={() => setShowUserTypeModal(true)} />
       
       <Hero onGetStarted={() => setShowUserTypeModal(true)} />
 
       {/* Stats Section */}
-      <section className="py-16 bg-secondary/20">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-3">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-purple-100 rounded-xl mb-3">
                   <stat.icon className="w-6 h-6 text-primary" />
                 </div>
-                <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
+                <div className="text-sm text-gray-600">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -108,17 +142,17 @@ const Index = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Find Your Perfect Kitchen</h2>
-            <p className="text-muted-foreground mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Find Your Perfect Kitchen</h2>
+            <p className="text-gray-600 mb-8">
               Discover commercial-grade kitchens available for rent in your area
             </p>
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <Input
                 placeholder="Search by location or kitchen type..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 py-3 text-lg"
+                className="pl-12 py-4 text-lg border-gray-200 focus:border-primary focus:ring-primary"
               />
             </div>
           </div>
@@ -132,65 +166,82 @@ const Index = () => {
 
           {filteredKitchens.length === 0 && searchTerm && (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">No kitchens found matching your search.</p>
+              <p className="text-gray-500">No kitchens found matching your search.</p>
             </div>
           )}
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-secondary/20">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Why Choose CulinaryStart?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose CulinaryStart?</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
               We're revolutionizing the food industry by connecting entrepreneurs with professional kitchen spaces
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center border-none shadow-lg">
+            <Card className="text-center border-0 shadow-lg bg-white">
               <CardHeader>
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <MapPin className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle>Prime Locations</CardTitle>
+                <CardTitle className="text-gray-900">Prime Locations</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
+                <CardDescription className="text-gray-600">
                   Access commercial kitchens in the best locations across the Netherlands
                 </CardDescription>
               </CardContent>
             </Card>
 
-            <Card className="text-center border-none shadow-lg">
+            <Card className="text-center border-0 shadow-lg bg-white">
               <CardHeader>
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Clock className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle>Flexible Booking</CardTitle>
+                <CardTitle className="text-gray-900">Flexible Booking</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
+                <CardDescription className="text-gray-600">
                   Book by the hour, day, or month. Perfect for any culinary project size
                 </CardDescription>
               </CardContent>
             </Card>
 
-            <Card className="text-center border-none shadow-lg">
+            <Card className="text-center border-0 shadow-lg bg-white">
               <CardHeader>
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-primary" />
                 </div>
-                <CardTitle>Community Focused</CardTitle>
+                <CardTitle className="text-gray-900">Community Focused</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
+                <CardDescription className="text-gray-600">
                   Connect with fellow food entrepreneurs and grow your culinary network
                 </CardDescription>
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-primary">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">Ready to Get Started?</h2>
+          <p className="text-purple-100 mb-8 max-w-2xl mx-auto">
+            Join thousands of kitchen owners and food entrepreneurs who are already part of the CulinaryStart community
+          </p>
+          <Button 
+            size="lg" 
+            onClick={() => setShowUserTypeModal(true)}
+            className="bg-white text-primary hover:bg-gray-100 px-8 py-3 text-lg"
+          >
+            Join CulinaryStart Today
+          </Button>
         </div>
       </section>
 

@@ -19,37 +19,37 @@ const Navigation = ({ userType, onSelectUserType }: NavigationProps) => {
   };
 
   return (
-    <nav className="bg-background/95 backdrop-blur-sm border-b sticky top-0 z-50">
+    <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
               <ChefHat className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">CulinaryStart</h1>
-              <p className="text-xs text-muted-foreground">Kitchen Sharing Platform</p>
+              <h1 className="text-xl font-bold text-gray-900">CulinaryStart</h1>
+              <p className="text-xs text-gray-500">Kitchen Sharing Platform</p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <a href="#explore" className="text-foreground hover:text-primary transition-colors">
+          <div className="hidden md:flex items-center space-x-8">
+            <a href="#explore" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">
               Explore Kitchens
             </a>
-            <a href="#community" className="text-foreground hover:text-primary transition-colors">
+            <a href="#community" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">
               Community
             </a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">
+            <a href="#about" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">
               About
             </a>
             {userType && (
-              <Badge variant="secondary" className="ml-2">
+              <Badge className="bg-primary/10 text-primary border-primary/20">
                 {getUserTypeDisplay()}
               </Badge>
             )}
-            <Button variant="ghost" size="sm" onClick={onSelectUserType}>
+            <Button onClick={onSelectUserType} className="bg-primary hover:bg-primary/90">
               <User className="w-4 h-4 mr-2" />
               {userType ? 'Switch Role' : 'Get Started'}
             </Button>
@@ -62,34 +62,30 @@ const Navigation = ({ userType, onSelectUserType }: NavigationProps) => {
               size="sm"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
-              {isMobileMenuOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </Button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t">
+          <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col space-y-3">
-              <a href="#explore" className="text-foreground hover:text-primary transition-colors">
+              <a href="#explore" className="text-gray-600 hover:text-gray-900 font-medium">
                 Explore Kitchens
               </a>
-              <a href="#community" className="text-foreground hover:text-primary transition-colors">
+              <a href="#community" className="text-gray-600 hover:text-gray-900 font-medium">
                 Community
               </a>
-              <a href="#about" className="text-foreground hover:text-primary transition-colors">
+              <a href="#about" className="text-gray-600 hover:text-gray-900 font-medium">
                 About
               </a>
               {userType && (
-                <Badge variant="secondary" className="w-fit">
+                <Badge className="bg-primary/10 text-primary border-primary/20 w-fit">
                   {getUserTypeDisplay()}
                 </Badge>
               )}
-              <Button variant="ghost" size="sm" onClick={onSelectUserType} className="w-fit">
+              <Button onClick={onSelectUserType} className="bg-primary hover:bg-primary/90 w-fit">
                 <User className="w-4 h-4 mr-2" />
                 {userType ? 'Switch Role' : 'Get Started'}
               </Button>
