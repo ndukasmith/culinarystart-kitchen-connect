@@ -47,7 +47,7 @@ const Index = () => {
       price: 65,
       rating: 4.7,
       reviews: 156,
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
       equipment: ["Full Equipment Set", "Recording Setup", "Tasting Area"],
       capacity: 6,
       available: true
