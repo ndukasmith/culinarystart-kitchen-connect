@@ -18,6 +18,14 @@ const Navigation = ({ userType, onSelectUserType }: NavigationProps) => {
     return null;
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="container mx-auto px-4">
@@ -35,15 +43,24 @@ const Navigation = ({ userType, onSelectUserType }: NavigationProps) => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#explore" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">
+            <button 
+              onClick={() => scrollToSection('explore')}
+              className="text-gray-600 hover:text-gray-900 font-medium transition-colors cursor-pointer"
+            >
               Explore Kitchens
-            </a>
-            <a href="#community" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">
+            </button>
+            <button 
+              onClick={() => scrollToSection('community')}
+              className="text-gray-600 hover:text-gray-900 font-medium transition-colors cursor-pointer"
+            >
               Community
-            </a>
-            <a href="#about" className="text-gray-600 hover:text-gray-900 font-medium transition-colors">
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="text-gray-600 hover:text-gray-900 font-medium transition-colors cursor-pointer"
+            >
               About
-            </a>
+            </button>
             {userType && (
               <Badge className="bg-primary/10 text-primary border-primary/20">
                 {getUserTypeDisplay()}
@@ -71,15 +88,24 @@ const Navigation = ({ userType, onSelectUserType }: NavigationProps) => {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col space-y-3">
-              <a href="#explore" className="text-gray-600 hover:text-gray-900 font-medium">
+              <button 
+                onClick={() => scrollToSection('explore')}
+                className="text-gray-600 hover:text-gray-900 font-medium text-left"
+              >
                 Explore Kitchens
-              </a>
-              <a href="#community" className="text-gray-600 hover:text-gray-900 font-medium">
+              </button>
+              <button 
+                onClick={() => scrollToSection('community')}
+                className="text-gray-600 hover:text-gray-900 font-medium text-left"
+              >
                 Community
-              </a>
-              <a href="#about" className="text-gray-600 hover:text-gray-900 font-medium">
+              </button>
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="text-gray-600 hover:text-gray-900 font-medium text-left"
+              >
                 About
-              </a>
+              </button>
               {userType && (
                 <Badge className="bg-primary/10 text-primary border-primary/20 w-fit">
                   {getUserTypeDisplay()}

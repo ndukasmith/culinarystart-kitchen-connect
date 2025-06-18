@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -138,8 +137,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Search Section */}
-      <section className="py-16">
+      {/* Search Section - This is the "Explore Kitchens" section */}
+      <section id="explore" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Find Your Perfect Kitchen</h2>
@@ -172,8 +171,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Features Section - This is the "About" section */}
+      <section id="about" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose CulinaryStart?</h2>
@@ -221,6 +220,62 @@ const Index = () => {
               <CardContent>
                 <CardDescription className="text-gray-600">
                   Connect with fellow food entrepreneurs and grow your culinary network
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Section */}
+      <section id="community" className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Join Our Community</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Connect with fellow food entrepreneurs and kitchen owners in the CulinaryStart community
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="text-center border-0 shadow-lg bg-white">
+              <CardHeader>
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-primary" />
+                </div>
+                <CardTitle className="text-gray-900">Network</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600">
+                  Connect with other food entrepreneurs and share experiences
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center border-0 shadow-lg bg-white">
+              <CardHeader>
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Star className="w-8 h-8 text-primary" />
+                </div>
+                <CardTitle className="text-gray-900">Reviews</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600">
+                  Share and read honest reviews from the community
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center border-0 shadow-lg bg-white">
+              <CardHeader>
+                <div className="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <ChefHat className="w-8 h-8 text-primary" />
+                </div>
+                <CardTitle className="text-gray-900">Learn</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-gray-600">
+                  Access resources and tips to grow your culinary business
                 </CardDescription>
               </CardContent>
             </Card>
