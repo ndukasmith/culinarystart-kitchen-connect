@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ChefHat, User, Menu, X } from "lucide-react";
+import { ChefHat, User, Menu, X, Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 interface NavigationProps {
   userType: string | null;
@@ -27,48 +28,69 @@ const Navigation = ({ userType, onSelectUserType }: NavigationProps) => {
   };
 
   return (
-    <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <nav className="bg-background border-b border-border sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <ChefHat className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 bg-cream-300 rounded-lg flex items-center justify-center">
+              <ChefHat className="w-6 h-6 text-foreground" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-900">CulinaryStart</h1>
-              <p className="text-xs text-gray-500">Kitchen Sharing Platform</p>
+              <h1 className="text-xl font-bold text-foreground">CULINARY</h1>
+              <h2 className="text-xl font-bold text-foreground">START</h2>
+            </div>
+          </div>
+
+          {/* Search Bar - Desktop */}
+          <div className="hidden md:flex flex-1 max-w-md mx-8">
+            <div className="relative w-full">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+              <Input
+                placeholder="Search..."
+                className="pl-10 bg-background border-border focus:ring-primary"
+              />
             </div>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <button 
               onClick={() => scrollToSection('explore')}
-              className="text-gray-600 hover:text-gray-900 font-medium transition-colors cursor-pointer"
+              className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer"
             >
-              Explore Kitchens
+              Rent your Kitchen
             </button>
             <button 
               onClick={() => scrollToSection('community')}
-              className="text-gray-600 hover:text-gray-900 font-medium transition-colors cursor-pointer"
+              className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer"
             >
-              Community
+              Try Demo
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-gray-600 hover:text-gray-900 font-medium transition-colors cursor-pointer"
+              className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer"
             >
               About
             </button>
+            <button 
+              className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer"
+            >
+              Members
+            </button>
+            <button 
+              className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer"
+            >
+              More
+            </button>
             {userType && (
-              <Badge className="bg-primary/10 text-primary border-primary/20">
+              <Badge className="bg-primary/20 text-primary border-primary/30">
                 {getUserTypeDisplay()}
               </Badge>
             )}
-            <Button onClick={onSelectUserType} className="bg-primary hover:bg-primary/90">
+            <Button onClick={onSelectUserType} className="bg-foreground text-background hover:bg-foreground/90">
               <User className="w-4 h-4 mr-2" />
-              {userType ? 'Switch Role' : 'Get Started'}
+              Log In
             </Button>
           </div>
 
@@ -86,34 +108,42 @@ const Navigation = ({ userType, onSelectUserType }: NavigationProps) => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
+          <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-3">
+              {/* Mobile Search */}
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                <Input
+                  placeholder="Search..."
+                  className="pl-10 bg-background border-border"
+                />
+              </div>
               <button 
                 onClick={() => scrollToSection('explore')}
-                className="text-gray-600 hover:text-gray-900 font-medium text-left"
+                className="text-foreground hover:text-primary font-medium text-left"
               >
-                Explore Kitchens
+                Rent your Kitchen
               </button>
               <button 
                 onClick={() => scrollToSection('community')}
-                className="text-gray-600 hover:text-gray-900 font-medium text-left"
+                className="text-foreground hover:text-primary font-medium text-left"
               >
-                Community
+                Try Demo
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-gray-600 hover:text-gray-900 font-medium text-left"
+                className="text-foreground hover:text-primary font-medium text-left"
               >
                 About
               </button>
               {userType && (
-                <Badge className="bg-primary/10 text-primary border-primary/20 w-fit">
+                <Badge className="bg-primary/20 text-primary border-primary/30 w-fit">
                   {getUserTypeDisplay()}
                 </Badge>
               )}
-              <Button onClick={onSelectUserType} className="bg-primary hover:bg-primary/90 w-fit">
+              <Button onClick={onSelectUserType} className="bg-foreground text-background hover:bg-foreground/90 w-fit">
                 <User className="w-4 h-4 mr-2" />
-                {userType ? 'Switch Role' : 'Get Started'}
+                Log In
               </Button>
             </div>
           </div>

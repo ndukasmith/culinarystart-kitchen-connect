@@ -15,6 +15,8 @@ interface Kitchen {
   equipment: string[];
   capacity: number;
   available: boolean;
+  isPopular?: boolean;
+  originalPrice?: number;
 }
 
 interface KitchenCardProps {
@@ -22,82 +24,72 @@ interface KitchenCardProps {
 }
 
 const KitchenCard = ({ kitchen }: KitchenCardProps) => {
+  const hasDiscount = kitchen.originalPrice && kitchen.originalPrice > kitchen.price;
+
   return (
-    <Card className="culinary-card group">
+    <Card className="culinary-card group bg-card border-border">
       <div className="relative">
         <img 
           src={kitchen.image} 
           alt={kitchen.name}
           className="w-full h-48 object-cover"
         />
-        <div className="absolute top-3 right-3">
-          {kitchen.available ? (
-            <Badge className="bg-green-500 hover:bg-green-600 text-white">Available</Badge>
-          ) : (
-            <Badge className="bg-gray-500 text-white">Booked</Badge>
+        <div className="absolute top-3 left-3">
+          {kitchen.isPopular && (
+            <Badge className="popular-badge">Most Popular</Badge>
+          )}
+          {hasDiscount && (
+            <Badge className="discount-badge ml-2">Discount</Badge>
           )}
         </div>
       </div>
       
       <CardHeader className="pb-3">
-        <div className="flex justify-between items-start">
-          <div className="flex-1">
-            <CardTitle className="text-lg text-gray-900 group-hover:text-primary transition-colors">
-              {kitchen.name}
-            </CardTitle>
-            <CardDescription className="flex items-center mt-1 text-gray-600">
-              <MapPin className="w-4 h-4 mr-1" />
-              {kitchen.location}
-            </CardDescription>
-          </div>
-          <div className="text-right">
-            <div className="flex items-center">
-              <Star className="w-4 h-4 text-yellow-500 fill-current mr-1" />
-              <span className="font-medium text-gray-900">{kitchen.rating}</span>
-              <span className="text-gray-500 text-sm ml-1">({kitchen.reviews})</span>
-            </div>
+        <CardTitle className="text-lg text-card-foreground group-hover:text-primary transition-colors">
+          {kitchen.name}
+        </CardTitle>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <span className="price-text">€ {kitchen.price}</span>
+            {hasDiscount && (
+              <span className="text-sm text-muted-foreground line-through ml-2">
+                € {kitchen.originalPrice}
+              </span>
+            )}
           </div>
         </div>
       </CardHeader>
       
       <CardContent className="pt-0">
         <div className="space-y-3">
-          <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="flex items-center text-sm text-muted-foreground">
+            <MapPin className="w-4 h-4 mr-1" />
+            <span>{kitchen.location}</span>
+          </div>
+          
+          <div className="flex items-center justify-between text-sm text-muted-foreground">
             <div className="flex items-center">
               <Users className="w-4 h-4 mr-1" />
-              <span>{kitchen.capacity} people capacity</span>
+              <span>{kitchen.capacity} people</span>
             </div>
             <div className="flex items-center">
-              <Clock className="w-4 h-4 mr-1" />
-              <span>Hourly rates</span>
+              <Star className="w-4 h-4 text-yellow-500 fill-current mr-1" />
+              <span className="font-medium text-card-foreground">{kitchen.rating}</span>
+              <span className="ml-1">({kitchen.reviews})</span>
             </div>
           </div>
           
           <div className="flex flex-wrap gap-1">
             {kitchen.equipment.slice(0, 2).map((item, index) => (
-              <Badge key={index} variant="outline" className="text-xs bg-gray-50 text-gray-700 border-gray-200">
+              <Badge key={index} variant="outline" className="text-xs bg-secondary text-secondary-foreground border-border">
                 {item}
               </Badge>
             ))}
             {kitchen.equipment.length > 2 && (
-              <Badge variant="outline" className="text-xs bg-gray-50 text-gray-700 border-gray-200">
+              <Badge variant="outline" className="text-xs bg-secondary text-secondary-foreground border-border">
                 +{kitchen.equipment.length - 2} more
               </Badge>
             )}
-          </div>
-          
-          <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-            <div>
-              <span className="text-2xl font-bold text-gray-900">€{kitchen.price}</span>
-              <span className="text-gray-600">/hour</span>
-            </div>
-            <Button 
-              size="sm" 
-              disabled={!kitchen.available}
-              className="bg-primary hover:bg-primary/90 disabled:bg-gray-300"
-            >
-              {kitchen.available ? 'View Details' : 'Unavailable'}
-            </Button>
           </div>
         </div>
       </CardContent>

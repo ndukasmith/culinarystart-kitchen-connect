@@ -65,6 +65,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Theme-specific colors
+				cream: {
+					50: '#fdfcf9',
+					100: '#f8f4ed',
+					200: '#f0e6d2',
+					300: '#e6d7b7',
+					400: '#d4c29f',
+					500: '#c2ad87',
+					600: '#a68f6b',
+					700: '#8a7355',
+					800: '#6e5841',
+					900: '#543f2e'
 				}
 			},
 			borderRadius: {
