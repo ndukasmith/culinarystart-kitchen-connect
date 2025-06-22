@@ -22,7 +22,7 @@ const Index = () => {
       price: 90,
       rating: 4.8,
       reviews: 124,
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop",
       equipment: ["Commercial Oven", "Industrial Mixer", "Prep Stations"],
       capacity: 8,
       available: true
@@ -34,7 +34,7 @@ const Index = () => {
       price: 80,
       rating: 4.9,
       reviews: 87,
-      image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop",
       equipment: ["Stone Oven", "Proofing Cabinet", "Dough Sheeter"],
       capacity: 4,
       available: true,
@@ -47,7 +47,7 @@ const Index = () => {
       price: 65,
       rating: 4.7,
       reviews: 156,
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1556909043-f313ca2eff5a?w=400&h=300&fit=crop",
       equipment: ["Full Equipment Set", "Recording Setup", "Tasting Area"],
       capacity: 6,
       available: true
@@ -60,7 +60,7 @@ const Index = () => {
       originalPrice: 60,
       rating: 4.6,
       reviews: 98,
-      image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1556909114-5ba6ff47e18b?w=400&h=300&fit=crop",
       equipment: ["Large Prep Area", "Industrial Equipment", "Cold Storage"],
       capacity: 10,
       available: true
@@ -72,7 +72,7 @@ const Index = () => {
       price: 80,
       rating: 4.5,
       reviews: 67,
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1556909043-4f9a409e2ab0?w=400&h=300&fit=crop",
       equipment: ["Basic Equipment", "Shared Storage", "Dining Area"],
       capacity: 6,
       available: true
