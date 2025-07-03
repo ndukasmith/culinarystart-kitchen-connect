@@ -14,7 +14,7 @@ const Index = () => {
   const [showUserTypeModal, setShowUserTypeModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Kitchen data matching the uploaded design
+  // Kitchen data with proper kitchen images
   const kitchens = [
     {
       id: 1,
