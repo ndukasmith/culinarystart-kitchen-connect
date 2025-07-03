@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -23,7 +22,7 @@ const Index = () => {
       price: 90,
       rating: 4.8,
       reviews: 124,
-      image: "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1556909114-5c5ab83d7ec1?w=400&h=300&fit=crop",
       equipment: ["Commercial Oven", "Industrial Mixer", "Prep Stations"],
       capacity: 8,
       available: true
@@ -35,7 +34,7 @@ const Index = () => {
       price: 80,
       rating: 4.9,
       reviews: 87,
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop",
       equipment: ["Stone Oven", "Proofing Cabinet", "Dough Sheeter"],
       capacity: 4,
       available: true,
@@ -61,7 +60,7 @@ const Index = () => {
       originalPrice: 60,
       rating: 4.6,
       reviews: 98,
-      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1556909043-4f9a409e2ab0?w=400&h=300&fit=crop",
       equipment: ["Large Prep Area", "Industrial Equipment", "Cold Storage"],
       capacity: 10,
       available: true
@@ -73,7 +72,7 @@ const Index = () => {
       price: 80,
       rating: 4.5,
       reviews: 67,
-      image: "https://images.unsplash.com/photo-1556909043-4f9a409e2ab0?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
       equipment: ["Basic Equipment", "Shared Storage", "Dining Area"],
       capacity: 6,
       available: true
