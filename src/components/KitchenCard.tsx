@@ -1,23 +1,7 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Star, MapPin, Users, Clock } from "lucide-react";
-
-interface Kitchen {
-  id: number;
-  name: string;
-  location: string;
-  price: number;
-  rating: number;
-  reviews: number;
-  image: string;
-  equipment: string[];
-  capacity: number;
-  available: boolean;
-  isPopular?: boolean;
-  originalPrice?: number;
-}
+import { Kitchen } from "@/data/kitchenData";
 
 interface KitchenCardProps {
   kitchen: Kitchen;
